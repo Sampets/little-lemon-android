@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">LittleLemon</string>
+    <string name="onboarding_welcome">Let\'s get to know you</string>
+    <string name="first_name">First name</string>
+    <string name="john">John</string>
+    <string name="last_name">Last name</string>
+    <string name="doe">Doe</string>
+    <string name="email">Email</string>
+    <string name="example_email">jd@example.com</string>
+    <string name="register">Register</string>
+    <string name="registration_fail">Registration unsuccessful. Please enter all data.</string>
+    <string name="registration_success">Registration successful!</string>
+    <string name="logged_out">Logged out.</string>
+    <string name="profile_welcome">Personal information</string>
+    <string name="log_out">Log out</string>
 </resources>
