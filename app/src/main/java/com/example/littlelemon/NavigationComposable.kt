@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
 @Composable
-fun Navigation(navController: NavHostController) {
+fun Navigation(navController: NavHostController, database: AppDatabase) {
 
     val context = LocalContext.current
 
@@ -17,7 +17,7 @@ fun Navigation(navController: NavHostController) {
         startDestination = if (isOnBoard(context)) Home.route else Onboarding.route
     ) {
         composable(Home.route) {
-            Home(navController = navController)
+            Home(navController = navController, database = database)
         }
         composable(Onboarding.route) {
             Onboarding(navController = navController)

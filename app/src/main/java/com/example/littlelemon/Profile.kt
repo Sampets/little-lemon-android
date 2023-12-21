@@ -23,10 +23,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.littlelemon.ui.theme.LittleLemonColor
 
 @Composable
-fun Profile(navController: NavHostController){
+fun Profile(navController: NavHostController) {
 
     val context = LocalContext.current
-    val sharedPreferences by lazy {context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)}
+    val sharedPreferences by lazy { context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE) }
 
     val firstName = sharedPreferences.getString(FIRST_NAME, "Unknown") ?: ""
     val lastName = sharedPreferences.getString(LAST_NAME, "Unknown") ?: ""
@@ -37,7 +37,7 @@ fun Profile(navController: NavHostController){
         Text(
             text = stringResource(id = R.string.profile_welcome),
             fontSize = 20.sp,
-            modifier = Modifier.padding( 30.dp, 60.dp, 0.dp, 40.dp)
+            modifier = Modifier.padding(30.dp, 60.dp, 0.dp, 40.dp)
         )
         Text(
             text = stringResource(id = R.string.first_name),
@@ -86,7 +86,11 @@ fun Profile(navController: NavHostController){
             {
                 sharedPreferences.edit().clear().apply()
                 Toast.makeText(context, R.string.logged_out, Toast.LENGTH_SHORT).show()
-                navController.navigate(Onboarding.route)
+                navController.navigate(Onboarding.route) {
+                    popUpTo(Home.route) {
+                        inclusive = true
+                    }
+                }
             },
             colors = ButtonDefaults.buttonColors(
                 LittleLemonColor.yellow

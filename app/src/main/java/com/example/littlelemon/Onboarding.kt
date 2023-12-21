@@ -112,7 +112,10 @@ fun Onboarding(navController: NavHostController) {
                     Toast.makeText(context, R.string.registration_success, Toast.LENGTH_SHORT)
                         .show()
 
-                    navController.navigate(Home.route)
+                    navController.navigate(Home.route) {
+                        popUpTo(Onboarding.route) { inclusive = true }
+                    }
+
                 }
             },
             colors = ButtonDefaults.buttonColors(
